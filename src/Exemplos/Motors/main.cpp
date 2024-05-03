@@ -20,6 +20,7 @@ void loop() {
   //PWM for the right motor
   for(int i=0; i< 1000; i++) {
     rightMotor.drive(i);
+    leftMotor.drive(i);
     Serial.println(i);
     delay(10);
   }

@@ -26,10 +26,10 @@ uint16_t position;
 float speed_left = 0;
 float speed_right = 0; 
 float speed_angular = 0 ;
-float speed_linear = 10; 
+float speed_linear = 300; 
 
 #include "controler.h"
-Controler  main_PID(1, 0, 0);  //(p,i,d)
+Controler  main_PID(2, 0, 0);  //(p,i,d)
 
 const int SET_POINT = 3500;
 
@@ -89,7 +89,7 @@ void loop(){
 
     speed_angular = main_PID.output(SET_POINT,position);
 
-    speed_angular = map(speed_angular, 2500,4500,-100,100);
+    speed_angular = map(speed_angular, 3000,4000,-1000,1000);
 
     speed_left = cinematic_left(speed_linear,speed_angular);
     speed_right = cinematic_right(speed_linear,speed_angular);
@@ -108,11 +108,16 @@ void debug(){
 
     Serial.print("POS: ");
     Serial.print(position);
+
+     Serial.print(" Speed_linear: ");
+    Serial.print(speed_linear);
     Serial.print(" Speed_angular: ");
     Serial.print(speed_angular);
+
     Serial.print(" Speed_left: ");
     Serial.print(speed_left);
     Serial.print("Speed Right");
     Serial.print(speed_right);
+    
     // Serial.println("");
 }
