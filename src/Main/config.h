@@ -10,13 +10,13 @@
 #define channel1 0
 #define channel2 1
 
-#define AIN1  12
-#define AIN2  23
-#define PWMA  15
+#define AIN1  19
+#define AIN2  18
+#define PWMA  5
 
-#define BIN1  19
-#define BIN2  18
-#define PWMB  5
+#define BIN1  21
+#define BIN2  22
+#define PWMB  23
 
 
 // Degub LED
